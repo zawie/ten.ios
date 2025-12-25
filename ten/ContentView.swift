@@ -1,34 +1,27 @@
-//
-//  ContentView.swift
-//  ten
-//
-//  Created by Adam Zawierucha on 12/25/25.
-//
-
 import SwiftUI
 import WebKit
 
 struct ContentView: View {
     var body: some View {
-        WebView(url: URL(string: "https://10.zawie.io")!)
+        BundledWebView()
             .edgesIgnoringSafeArea(.all)
     }
 }
 
-struct WebView: UIViewRepresentable {
-    let url: URL
-    
+struct BundledWebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.load(URLRequest(url: url))
+        let config = WKWebViewConfiguration()
+        config.defaultWebpagePreferences.allowsContentJavaScript = true
+        
+        let webView = WKWebView(frame: .zero, configuration: config)
+        
+        if let bundleURL = Bundle.main.url(forResource: "dist", withExtension: nil) {
+            let indexURL = bundleURL.appendingPathComponent("index.html")
+            webView.loadFileURL(indexURL, allowingReadAccessTo: bundleURL)
+        }
+        
         return webView
     }
     
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        // No update needed for static URL
-    }
-}
-
-#Preview {
-    ContentView()
+    func updateUIView(_ uiView: WKWebView, context: Context) {}
 }

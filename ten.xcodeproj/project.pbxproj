@@ -6,14 +6,39 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0590264D2EFDE5600043FBB6 /* dist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0590264C2EFDE5600043FBB6 /* dist */; };
+		059032652EFDDB190043FBB6 /* pull_site.sh in Sources */ = {isa = PBXBuildFile; fileRef = 059032522EFDDB190043FBB6 /* pull_site.sh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		059026032EFDDE7A0043FBB6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				0590264D2EFDE5600043FBB6 /* dist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		058553B02EFDD3E10025E4FE /* ten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ten.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0590264C2EFDE5600043FBB6 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		059032522EFDDB190043FBB6 /* pull_site.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pull_site.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		058553B22EFDD3E10025E4FE /* ten */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ten;
+			sourceTree = "<group>";
+		};
+		0590264B2EFDE3330043FBB6 /* dist */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = dist;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,8 +57,11 @@
 		058553A72EFDD3E10025E4FE = {
 			isa = PBXGroup;
 			children = (
+				0590264C2EFDE5600043FBB6 /* dist */,
 				058553B22EFDD3E10025E4FE /* ten */,
 				058553B12EFDD3E10025E4FE /* Products */,
+				059032522EFDDB190043FBB6 /* pull_site.sh */,
+				0590264B2EFDE3330043FBB6 /* dist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,7 +82,7 @@
 			buildPhases = (
 				058553AC2EFDD3E10025E4FE /* Sources */,
 				058553AD2EFDD3E10025E4FE /* Frameworks */,
-				058553AE2EFDD3E10025E4FE /* Resources */,
+				059026032EFDDE7A0043FBB6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -62,6 +90,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				058553B22EFDD3E10025E4FE /* ten */,
+				0590264B2EFDE3330043FBB6 /* dist */,
 			);
 			name = ten;
 			packageProductDependencies = (
@@ -104,21 +133,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		058553AE2EFDD3E10025E4FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		058553AC2EFDD3E10025E4FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059032652EFDDB190043FBB6 /* pull_site.sh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
