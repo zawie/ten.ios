@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0590264D2EFDE5600043FBB6 /* dist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0590264C2EFDE5600043FBB6 /* dist */; };
-		059032652EFDDB190043FBB6 /* pull_site.sh in Sources */ = {isa = PBXBuildFile; fileRef = 059032522EFDDB190043FBB6 /* pull_site.sh */; };
+		0590266E2EFDEE330043FBB6 /* dist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0590266D2EFDEE330043FBB6 /* dist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				0590264D2EFDE5600043FBB6 /* dist in CopyFiles */,
+				0590266E2EFDEE330043FBB6 /* dist in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,19 +25,13 @@
 
 /* Begin PBXFileReference section */
 		058553B02EFDD3E10025E4FE /* ten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ten.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0590264C2EFDE5600043FBB6 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
-		059032522EFDDB190043FBB6 /* pull_site.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pull_site.sh; sourceTree = "<group>"; };
+		0590266D2EFDEE330043FBB6 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		058553B22EFDD3E10025E4FE /* ten */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ten;
-			sourceTree = "<group>";
-		};
-		0590264B2EFDE3330043FBB6 /* dist */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = dist;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -57,11 +50,9 @@
 		058553A72EFDD3E10025E4FE = {
 			isa = PBXGroup;
 			children = (
-				0590264C2EFDE5600043FBB6 /* dist */,
+				0590266D2EFDEE330043FBB6 /* dist */,
 				058553B22EFDD3E10025E4FE /* ten */,
 				058553B12EFDD3E10025E4FE /* Products */,
-				059032522EFDDB190043FBB6 /* pull_site.sh */,
-				0590264B2EFDE3330043FBB6 /* dist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +73,7 @@
 			buildPhases = (
 				058553AC2EFDD3E10025E4FE /* Sources */,
 				058553AD2EFDD3E10025E4FE /* Frameworks */,
+				059026672EFDE8D80043FBB6 /* ShellScript */,
 				059026032EFDDE7A0043FBB6 /* CopyFiles */,
 			);
 			buildRules = (
@@ -90,7 +82,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				058553B22EFDD3E10025E4FE /* ten */,
-				0590264B2EFDE3330043FBB6 /* dist */,
 			);
 			name = ten;
 			packageProductDependencies = (
@@ -133,12 +124,32 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		059026672EFDE8D80043FBB6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\nWORK_DIR=\"/tmp/ten-build-$$\"\nrm -rf \"$WORK_DIR\"\nmkdir -p \"$WORK_DIR\"\n\necho \"🚀 Starting web build in WORK_DIR=$WORK_DIR\"\n\necho \"Which npm: $(which npm)\"\necho \"Node version: $(node --version)\"\necho \"NPM version: $(npm --version)\"\n\ncd \"$WORK_DIR\"\ngit clone https://github.com/zawie/10.git repo\ncd repo\nnpm install\nnpm run build:app\n\nrm -rf \"$SRCROOT/dist\"\n\nif [ -d \"build\" ]; then\n    mv build \"$SRCROOT/dist\"\nelse\n    echo \"❌ Build failed - contents:\"\n    ls -la\n    exit 1\nfi\n\nrm -rf \"$WORK_DIR\"\n\necho \"✅ Web build complete\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		058553AC2EFDD3E10025E4FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				059032652EFDDB190043FBB6 /* pull_site.sh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -304,6 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
