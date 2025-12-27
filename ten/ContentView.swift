@@ -21,6 +21,8 @@ struct BundledWebView: UIViewRepresentable {
             let indexURL = bundleURL.appendingPathComponent("index.html")
             let videosURL = bundleURL.appendingPathComponent("videos")
             webView.loadFileURL(indexURL, allowingReadAccessTo: videosURL.deletingLastPathComponent())
+            let soundsURL = bundleURL.appendingPathComponent("sounds")
+            webView.loadFileURL(indexURL, allowingReadAccessTo: soundsURL.deletingLastPathComponent())
         }
         
         return webView
