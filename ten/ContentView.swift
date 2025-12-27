@@ -19,7 +19,8 @@ struct BundledWebView: UIViewRepresentable {
         
         if let bundleURL = Bundle.main.url(forResource: "dist", withExtension: nil) {
             let indexURL = bundleURL.appendingPathComponent("index.html")
-            webView.loadFileURL(indexURL, allowingReadAccessTo: bundleURL)
+            let videosURL = bundleURL.appendingPathComponent("videos")
+            webView.loadFileURL(indexURL, allowingReadAccessTo: videosURL.deletingLastPathComponent())
         }
         
         return webView
