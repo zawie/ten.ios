@@ -60,6 +60,20 @@ class WebCacheManager: ObservableObject {
     // 3. Fall back to bundled dist
     
     func loadBestAvailableContent() {
+        // Debug: what's actually in the bundle?
+       if let resourcePath = Bundle.main.resourcePath {
+           let contents = try? fileManager.contentsOfDirectory(atPath: resourcePath)
+           print("Bundle contents: \(contents ?? [])")
+       }
+       
+       if let bundleURL = Bundle.main.url(forResource: "dist", withExtension: nil) {
+           print("Found dist at: \(bundleURL.path)")
+           let distContents = try? fileManager.contentsOfDirectory(atPath: bundleURL.path)
+           print("Dist contents: \(distContents ?? [])")
+       } else {
+           print("dist folder NOT FOUND in bundle")
+       }
+    
         // First, set to cached or bundled content immediately for fast startup
         if fileManager.fileExists(atPath: cachedIndexFile.path) {
             contentURL = cachedIndexFile
@@ -214,11 +228,14 @@ class WebCacheManager: ObservableObject {
     }
     
     private func cleanupOrphanedFiles(keeping validPaths: Set<String>) {
-        guard let enumerator = fileManager.enumerator(at: cacheDirectory, includingPropertiesForKeys: [.isRegularFileKey]) else { return }
+        guard let enumerator = fileManager.enumerator(at: cacheDirectory, includingPropertiesForKeys: [.isRegularFileKey, .isDirectoryKey]) else { return }
         
         for case let fileURL as URL in enumerator {
+            // Skip directories
+            guard let resourceValues = try? fileURL.resourceValues(forKeys: [.isDirectoryKey]),
+                  resourceValues.isDirectory != true else { continue }
+            
             let relativePath = fileURL.path.replacingOccurrences(of: cacheDirectory.path + "/", with: "")
-            // Keep manifest files and valid assets
             if !validPaths.contains(relativePath) &&
                relativePath != "version.json" &&
                relativePath != "asset-manifest.json" {
