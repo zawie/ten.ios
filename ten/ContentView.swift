@@ -168,6 +168,8 @@ class WebCacheManager: ObservableObject {
                     self.contentVersion += 1  // Force WebView reload
                     print("Cache updated successfully (commit: \(version.commitHash), built: \(version.buildTime))")
                 }
+                let validFiles = Set(manifest.files.values.map { $0.hasPrefix("./") ? String($0.dropFirst(2)) : $0 })
+                self.cleanupOrphanedFiles(keeping: validFiles)
             } else {
                 print("Some files failed to download, keeping existing content")
             }
@@ -209,6 +211,21 @@ class WebCacheManager: ObservableObject {
             }
         }
         task.resume()
+    }
+    
+    private func cleanupOrphanedFiles(keeping validPaths: Set<String>) {
+        guard let enumerator = fileManager.enumerator(at: cacheDirectory, includingPropertiesForKeys: [.isRegularFileKey]) else { return }
+        
+        for case let fileURL as URL in enumerator {
+            let relativePath = fileURL.path.replacingOccurrences(of: cacheDirectory.path + "/", with: "")
+            // Keep manifest files and valid assets
+            if !validPaths.contains(relativePath) &&
+               relativePath != "version.json" &&
+               relativePath != "asset-manifest.json" {
+                try? fileManager.removeItem(at: fileURL)
+                print("Cleaned up orphaned file: \(relativePath)")
+            }
+        }
     }
     
     func clearCache() {
