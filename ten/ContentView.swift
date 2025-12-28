@@ -9,9 +9,6 @@ struct ContentView: View {
     var body: some View {
         CachedWebView(cacheManager: cacheManager)
             .edgesIgnoringSafeArea(.all)
-            .onAppear {
-                cacheManager.checkForUpdates()
-            }
             .onChange(of: scenePhase) { oldPhase, newPhase in
                 if newPhase == .active {
                     cacheManager.checkForUpdates()
