@@ -7,43 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0590266E2EFDEE330043FBB6 /* dist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0590266D2EFDEE330043FBB6 /* dist */; };
+		059026832F0583B20043FBB6 /* dist in Copy Files */ = {isa = PBXBuildFile; fileRef = 059026822F0583B20043FBB6 /* dist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		059026032EFDDE7A0043FBB6 /* CopyFiles */ = {
+		059026032EFDDE7A0043FBB6 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				0590266E2EFDEE330043FBB6 /* dist in CopyFiles */,
+				059026832F0583B20043FBB6 /* dist in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		058553B02EFDD3E10025E4FE /* ten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ten.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0590266D2EFDEE330043FBB6 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		059026822F0583B20043FBB6 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		059026732EFF882E0043FBB6 /* Exceptions for "ten" folder in "Copy Files" phase from "ten" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 059026032EFDDE7A0043FBB6 /* CopyFiles */;
-			membershipExceptions = (
-				Assets.xcassets,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		058553B22EFDD3E10025E4FE /* ten */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				059026732EFF882E0043FBB6 /* Exceptions for "ten" folder in "Copy Files" phase from "ten" target */,
-			);
 			path = ten;
 			sourceTree = "<group>";
 		};
@@ -63,7 +51,7 @@
 		058553A72EFDD3E10025E4FE = {
 			isa = PBXGroup;
 			children = (
-				0590266D2EFDEE330043FBB6 /* dist */,
+				059026822F0583B20043FBB6 /* dist */,
 				058553B22EFDD3E10025E4FE /* ten */,
 				058553B12EFDD3E10025E4FE /* Products */,
 			);
@@ -87,7 +75,7 @@
 				058553AC2EFDD3E10025E4FE /* Sources */,
 				058553AD2EFDD3E10025E4FE /* Frameworks */,
 				059026672EFDE8D80043FBB6 /* ShellScript */,
-				059026032EFDDE7A0043FBB6 /* CopyFiles */,
+				059026032EFDDE7A0043FBB6 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -292,16 +280,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H425Q848PY;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Tens";
+				INFOPLIST_KEY_CFBundleDisplayName = "Total Ten";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -315,7 +308,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zawie.io.ten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -329,16 +325,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H425Q848PY;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Lucky Tens";
+				INFOPLIST_KEY_CFBundleDisplayName = "Total Ten";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -352,7 +353,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zawie.io.ten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
