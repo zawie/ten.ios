@@ -72,7 +72,11 @@ class WebCacheManager: ObservableObject {
     @Published var isLoading = true
     @Published var contentVersion = 0  // Increment to force reload
     
-    private let remoteBaseURL = "https://app.10.zawie.io"
+    private let remoteBaseURLs = [
+        "https://app.totalten.io",
+        "https://app.10.zawie.io"
+    ]
+    private var activeBaseURL: String?
     private let fileManager = FileManager.default
     private var downloadStartTime: Date?
     private var totalFilesToDownload = 0
@@ -94,7 +98,7 @@ class WebCacheManager: ObservableObject {
     init() {
         Logger.log("🏗️ WebCacheManager initializing...")
         Logger.logCache("Cache directory: \(cacheDirectory.path)")
-        Logger.logCache("Remote base URL: \(remoteBaseURL)")
+        Logger.logCache("Remote base URLs: \(remoteBaseURLs)")
         
         createCacheDirectoryIfNeeded()
         logCacheStatus()
@@ -225,9 +229,24 @@ class WebCacheManager: ObservableObject {
     
     func checkForUpdates() {
         Logger.logNetwork("=== Checking for Updates ===")
+        Logger.logNetwork("Will try URLs in order: \(remoteBaseURLs)")
         
-        guard let versionURL = URL(string: "\(remoteBaseURL)/version.json") else {
-            Logger.logError("Invalid version URL: \(remoteBaseURL)/version.json")
+        // Try each URL in order
+        tryCheckForUpdates(urlIndex: 0)
+    }
+    
+    private func tryCheckForUpdates(urlIndex: Int) {
+        guard urlIndex < remoteBaseURLs.count else {
+            Logger.logError("All remote URLs failed, giving up on update check")
+            return
+        }
+        
+        let baseURL = remoteBaseURLs[urlIndex]
+        Logger.logNetwork("Trying URL \(urlIndex + 1)/\(remoteBaseURLs.count): \(baseURL)")
+        
+        guard let versionURL = URL(string: "\(baseURL)/version.json") else {
+            Logger.logError("Invalid version URL: \(baseURL)/version.json")
+            tryCheckForUpdates(urlIndex: urlIndex + 1)
             return
         }
         
@@ -249,16 +268,25 @@ class WebCacheManager: ObservableObject {
             // Log response details
             if let httpResponse = response as? HTTPURLResponse {
                 Logger.logNetwork("Response status: \(httpResponse.statusCode) (took \(String(format: "%.2f", duration))s)")
-                Logger.logNetwork("Response headers: \(httpResponse.allHeaderFields)")
+                
+                // If we got a non-success status, try the next URL
+                if httpResponse.statusCode < 200 || httpResponse.statusCode >= 300 {
+                    Logger.logNetwork("Non-success status from \(baseURL), trying next URL...")
+                    self.tryCheckForUpdates(urlIndex: urlIndex + 1)
+                    return
+                }
             }
             
             if let error = error {
-                Logger.logError("Failed to fetch version.json", error: error)
+                Logger.logError("Failed to fetch version.json from \(baseURL)", error: error)
+                Logger.logNetwork("Trying next URL...")
+                self.tryCheckForUpdates(urlIndex: urlIndex + 1)
                 return
             }
             
             guard let data = data else {
-                Logger.logError("No data received from version.json")
+                Logger.logError("No data received from version.json at \(baseURL)")
+                self.tryCheckForUpdates(urlIndex: urlIndex + 1)
                 return
             }
             
@@ -278,9 +306,14 @@ class WebCacheManager: ObservableObject {
                 Logger.logNetwork("  Build type: \(remoteVersion.buildType)")
                 Logger.logNetwork("  Message: \(remoteVersion.commitMessage)")
                 
+                // Success! Set the active base URL and proceed
+                self.activeBaseURL = baseURL
+                Logger.logSuccess("Using \(baseURL) for downloads")
+                
                 self.handleVersionCheck(remoteVersion: remoteVersion, remoteData: data)
             } catch {
-                Logger.logError("Failed to decode version.json", error: error)
+                Logger.logError("Failed to decode version.json from \(baseURL)", error: error)
+                self.tryCheckForUpdates(urlIndex: urlIndex + 1)
             }
         }
         task.resume()
@@ -336,7 +369,12 @@ class WebCacheManager: ObservableObject {
         Logger.logNetwork("=== Starting Content Download ===")
         downloadStartTime = Date()
         
-        guard let manifestURL = URL(string: "\(remoteBaseURL)/asset-manifest.json") else {
+        guard let baseURL = activeBaseURL else {
+            Logger.logError("No active base URL set for download")
+            return
+        }
+        
+        guard let manifestURL = URL(string: "\(baseURL)/asset-manifest.json") else {
             Logger.logError("Invalid manifest URL")
             return
         }
@@ -475,7 +513,13 @@ class WebCacheManager: ObservableObject {
     }
     
     private func downloadFile(_ relativePath: String, completion: @escaping (Bool, Int) -> Void) {
-        guard let url = URL(string: "\(remoteBaseURL)/\(relativePath)") else {
+        guard let baseURL = activeBaseURL else {
+            Logger.logError("No active base URL for downloading: \(relativePath)")
+            completion(false, 0)
+            return
+        }
+        
+        guard let url = URL(string: "\(baseURL)/\(relativePath)") else {
             Logger.logError("Invalid URL for: \(relativePath)")
             completion(false, 0)
             return
