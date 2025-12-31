@@ -74,7 +74,8 @@ class WebCacheManager: ObservableObject {
     
     private let remoteBaseURLs = [
         "https://app.totalten.io",
-        "https://app.10.zawie.io"
+        "https://app.10.zawie.io",
+        "https://10-app.pages.dev"
     ]
     private var activeBaseURL: String?
     private let fileManager = FileManager.default
