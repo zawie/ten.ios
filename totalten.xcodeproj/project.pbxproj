@@ -7,38 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		059026832F0583B20043FBB6 /* dist in Copy Files */ = {isa = PBXBuildFile; fileRef = 059026822F0583B20043FBB6 /* dist */; };
+		05B49E812F0681BD00CB685A /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 05B49E802F0681BD00CB685A /* dist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		059026032EFDDE7A0043FBB6 /* Copy Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 7;
-			files = (
-				059026832F0583B20043FBB6 /* dist in Copy Files */,
-			);
-			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		058553B02EFDD3E10025E4FE /* ten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ten.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		059026822F0583B20043FBB6 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
+		05B49E6A2F067FB700CB685A /* totalten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = totalten.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B49E802F0681BD00CB685A /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		05B49E832F06840800CB685A /* Exceptions for "totalten" folder in "totalten" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 05B49E692F067FB700CB685A /* totalten */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		058553B22EFDD3E10025E4FE /* ten */ = {
+		05B49E6C2F067FB800CB685A /* totalten */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ten;
+			exceptions = (
+				05B49E832F06840800CB685A /* Exceptions for "totalten" folder in "totalten" target */,
+			);
+			path = totalten;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		058553AD2EFDD3E10025E4FE /* Frameworks */ = {
+		05B49E672F067FB700CB685A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,19 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		058553A72EFDD3E10025E4FE = {
+		05B49E612F067FB700CB685A = {
 			isa = PBXGroup;
 			children = (
-				059026822F0583B20043FBB6 /* dist */,
-				058553B22EFDD3E10025E4FE /* ten */,
-				058553B12EFDD3E10025E4FE /* Products */,
+				05B49E802F0681BD00CB685A /* dist */,
+				05B49E6C2F067FB800CB685A /* totalten */,
+				05B49E6B2F067FB700CB685A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		058553B12EFDD3E10025E4FE /* Products */ = {
+		05B49E6B2F067FB700CB685A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				058553B02EFDD3E10025E4FE /* ten.app */,
+				05B49E6A2F067FB700CB685A /* totalten.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,65 +67,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		058553AF2EFDD3E10025E4FE /* ten */ = {
+		05B49E692F067FB700CB685A /* totalten */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 058553BB2EFDD3E20025E4FE /* Build configuration list for PBXNativeTarget "ten" */;
+			buildConfigurationList = 05B49E752F067FB900CB685A /* Build configuration list for PBXNativeTarget "totalten" */;
 			buildPhases = (
-				058553AC2EFDD3E10025E4FE /* Sources */,
-				058553AD2EFDD3E10025E4FE /* Frameworks */,
-				059026672EFDE8D80043FBB6 /* ShellScript */,
-				059026032EFDDE7A0043FBB6 /* Copy Files */,
+				05B49E662F067FB700CB685A /* Sources */,
+				05B49E672F067FB700CB685A /* Frameworks */,
+				05B49E7E2F0680B500CB685A /* ShellScript */,
+				05B49E682F067FB700CB685A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				058553B22EFDD3E10025E4FE /* ten */,
+				05B49E6C2F067FB800CB685A /* totalten */,
 			);
-			name = ten;
+			name = totalten;
 			packageProductDependencies = (
 			);
-			productName = ten;
-			productReference = 058553B02EFDD3E10025E4FE /* ten.app */;
+			productName = totalten;
+			productReference = 05B49E6A2F067FB700CB685A /* totalten.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		058553A82EFDD3E10025E4FE /* Project object */ = {
+		05B49E622F067FB700CB685A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
-					058553AF2EFDD3E10025E4FE = {
+					05B49E692F067FB700CB685A = {
 						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
-			buildConfigurationList = 058553AB2EFDD3E10025E4FE /* Build configuration list for PBXProject "ten" */;
+			buildConfigurationList = 05B49E652F067FB700CB685A /* Build configuration list for PBXProject "totalten" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 058553A72EFDD3E10025E4FE;
+			mainGroup = 05B49E612F067FB700CB685A;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 058553B12EFDD3E10025E4FE /* Products */;
+			productRefGroup = 05B49E6B2F067FB700CB685A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				058553AF2EFDD3E10025E4FE /* ten */,
+				05B49E692F067FB700CB685A /* totalten */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		05B49E682F067FB700CB685A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B49E812F0681BD00CB685A /* dist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
-		059026672EFDE8D80043FBB6 /* ShellScript */ = {
+		05B49E7E2F0680B500CB685A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -142,12 +152,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\nWORK_DIR=\"/tmp/ten-build-$$\"\nrm -rf \"$WORK_DIR\"\nmkdir -p \"$WORK_DIR\"\n\necho \"🚀 Starting web build in WORK_DIR=$WORK_DIR\"\n\necho \"Which npm: $(which npm)\"\necho \"Node version: $(node --version)\"\necho \"NPM version: $(npm --version)\"\n\ncd \"$WORK_DIR\"\ngit clone https://github.com/zawie/10.git repo\ncd repo\nnpm install\nnpm run build:app\n\nrm -rf \"$SRCROOT/dist\"\n\nif [ -d \"build\" ]; then\n    mv build \"$SRCROOT/dist\"\nelse\n    echo \"❌ Build failed - contents:\"\n    ls -la\n    exit 1\nfi\n\nrm -rf \"$WORK_DIR\"\n\necho \"✅ Web build complete\"\n";
+			shellScript = "export PATH=\"/opt/homebrew/bin:/usr/local/bin:$PATH\"\n\nWORK_DIR=\"/tmp/ten-build-$$\"\nrm -rf \"$WORK_DIR\"\nmkdir -p \"$WORK_DIR\"\n \necho \"🚀 Starting web build in WORK_DIR=$WORK_DIR\"\n\necho \"Which npm: $(which npm)\"\necho \"Node version: $(node --version)\"\necho \"NPM version: $(npm --version)\"\n\ncd \"$WORK_DIR\"\ngit clone https://github.com/zawie/10.git repo\ncd repo\nnpm install\nnpm run build:app\n\nrm -rf \"$SRCROOT/dist\"\n\nif [ -d \"build\" ]; then\n    mv build \"$SRCROOT/dist\"\nelse\n    echo \"❌ Build failed - contents:\"\n    ls -la\n    exit 1\nfi\n\nrm -rf \"$WORK_DIR\"\n\necho \"✅ Web build complete\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		058553AC2EFDD3E10025E4FE /* Sources */ = {
+		05B49E662F067FB700CB685A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,7 +167,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		058553B92EFDD3E20025E4FE /* Debug */ = {
+		05B49E732F067FB900CB685A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,6 +202,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = H425Q848PY;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -220,7 +231,7 @@
 			};
 			name = Debug;
 		};
-		058553BA2EFDD3E20025E4FE /* Release */ = {
+		05B49E742F067FB900CB685A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -255,6 +266,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = H425Q848PY;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -276,42 +288,33 @@
 			};
 			name = Release;
 		};
-		058553BC2EFDD3E20025E4FE /* Debug */ = {
+		05B49E762F067FB900CB685A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H425Q848PY;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = totalten/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Total Ten";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.totalten.io;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zawie.totalten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -321,42 +324,33 @@
 			};
 			name = Debug;
 		};
-		058553BD2EFDD3E20025E4FE /* Release */ = {
+		05B49E772F067FB900CB685A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H425Q848PY;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = totalten/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Total Ten";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.totalten.io;
+				PRODUCT_BUNDLE_IDENTIFIER = io.zawie.totalten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -369,25 +363,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		058553AB2EFDD3E10025E4FE /* Build configuration list for PBXProject "ten" */ = {
+		05B49E652F067FB700CB685A /* Build configuration list for PBXProject "totalten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				058553B92EFDD3E20025E4FE /* Debug */,
-				058553BA2EFDD3E20025E4FE /* Release */,
+				05B49E732F067FB900CB685A /* Debug */,
+				05B49E742F067FB900CB685A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		058553BB2EFDD3E20025E4FE /* Build configuration list for PBXNativeTarget "ten" */ = {
+		05B49E752F067FB900CB685A /* Build configuration list for PBXNativeTarget "totalten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				058553BC2EFDD3E20025E4FE /* Debug */,
-				058553BD2EFDD3E20025E4FE /* Release */,
+				05B49E762F067FB900CB685A /* Debug */,
+				05B49E772F067FB900CB685A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 058553A82EFDD3E10025E4FE /* Project object */;
+	rootObject = 05B49E622F067FB700CB685A /* Project object */;
 }
