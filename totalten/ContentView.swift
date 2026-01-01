@@ -39,9 +39,9 @@ struct Logger {
         let fileName = (file as NSString).lastPathComponent
         let fullMessage = "[\(timestamp)] [\(fileName):\(line)] \(function) → \(message)"
         print(fullMessage)
-        osLog.info("\(fullMessage)")
+        osLog.info("\(fullMessage, privacy: .public)")
     }
-    
+
     static func logError(_ message: String, error: Error? = nil, file: String = #file, function: String = #function, line: Int = #line) {
         let timestamp = dateFormatter.string(from: Date())
         let fileName = (file as NSString).lastPathComponent
@@ -51,9 +51,8 @@ struct Logger {
             fullMessage += "\n   Details: \(error)"
         }
         print(fullMessage)
-        osLog.error("\(fullMessage)")
+        osLog.error("\(fullMessage, privacy: .public)")
     }
-    
     static func logSuccess(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
         log("✅ \(message)", file: file, function: function, line: line)
     }
