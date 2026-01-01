@@ -8,6 +8,7 @@ struct ContentView: View {
     
     var body: some View {
         CachedWebView(cacheManager: cacheManager)
+            .background(Color(red: 30/255, green: 32/255, blue: 30/255))
             .edgesIgnoringSafeArea(.all)
             .onChange(of: scenePhase) { oldPhase, newPhase in
                 Logger.log("🔄 Scene phase changed: \(oldPhase) → \(newPhase)")
@@ -752,6 +753,9 @@ struct CachedWebView: UIViewRepresentable {
         let webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = context.coordinator
         webView.uiDelegate = context.coordinator
+        
+        webView.isOpaque = false
+        webView.backgroundColor = UIColor(red: 30/255, green: 32/255, blue: 30/255, alpha: 1.0)
         
         // Enable Safari Web Inspector (for debugging via Mac)
         if #available(iOS 16.4, *) {
