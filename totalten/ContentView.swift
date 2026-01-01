@@ -1,6 +1,7 @@
 import SwiftUI
 import WebKit
 import Combine
+import os
 
 struct ContentView: View {
     @StateObject private var cacheManager = WebCacheManager()
@@ -24,8 +25,9 @@ struct ContentView: View {
 }
 
 // MARK: - Logger
-
 struct Logger {
+    private static let osLog = os.Logger(subsystem: "io.zawie.totalten", category: "app")
+    
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSS"
@@ -35,7 +37,9 @@ struct Logger {
     static func log(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
         let timestamp = dateFormatter.string(from: Date())
         let fileName = (file as NSString).lastPathComponent
-        print("[\(timestamp)] [\(fileName):\(line)] \(function) → \(message)")
+        let fullMessage = "[\(timestamp)] [\(fileName):\(line)] \(function) → \(message)"
+        print(fullMessage)
+        osLog.info("\(fullMessage)")
     }
     
     static func logError(_ message: String, error: Error? = nil, file: String = #file, function: String = #function, line: Int = #line) {
@@ -47,6 +51,7 @@ struct Logger {
             fullMessage += "\n   Details: \(error)"
         }
         print(fullMessage)
+        osLog.error("\(fullMessage)")
     }
     
     static func logSuccess(_ message: String, file: String = #file, function: String = #function, line: Int = #line) {
